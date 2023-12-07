@@ -1,0 +1,28 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "title": "Submit project report",
+      "deadline": "tomorrow",
+      "status": "done"
+    },
+    {
+      "id": 2,
+      "title": "Update participant lists",
+      "deadline": "tonight",
+      "status": "not started"
+    },
+    {
+      "id": 3,
+      "title": "Submit course assignment",
+      "deadline": "Next Thursday",
+      "status": "in progress"
+    },
+    {
+      "id": 4,
+      "title": "Reply emails",
+      "deadline": "This Friday",
+      "status": "done"
+    }
+  ]
+}
