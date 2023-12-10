@@ -9,21 +9,23 @@ import {
 } from '@mui/material'
 import CommonButton from './CommonButton'
 
-const AddTaskForm = ({ toggleAddFormShow, addNewTask }) => {
-  const [title, setTitle] = useState('')
-  const [deadline, setDeadline] = useState('')
-  const [status, setStatus] = useState('')
+const EditTaskForm = ({ task, toggleEditFormShow, saveTaskChanges }) => {
+  const [title, setTitle] = useState(task.title)
+  const [deadline, setDeadline] = useState(task.deadline)
+  const [status, setStatus] = useState(task.status)
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    addNewTask({ title, deadline, status })
+    saveTaskChanges({ title, deadline, status })
   }
 
   return (
     <Box
       component='form'
       onSubmit={handleSubmit}
-      sx={{ mb: 1, p: 2, borderRadius: 2, border: 1, borderColor: 'grey.300' }}
+      sx={{
+        mt: 2,
+      }}
     >
       <TextField
         sx={{ my: 1 }}
@@ -66,7 +68,7 @@ const AddTaskForm = ({ toggleAddFormShow, addNewTask }) => {
         <CommonButton
           sx={{ textTransform: 'none' }}
           variant='outlined'
-          onClick={toggleAddFormShow}
+          onClick={toggleEditFormShow}
         >
           Cancel
         </CommonButton>
@@ -75,11 +77,11 @@ const AddTaskForm = ({ toggleAddFormShow, addNewTask }) => {
           variant='contained'
           type='submit'
         >
-          Add Task
+          Save
         </CommonButton>
       </Box>
     </Box>
   )
 }
 
-export default AddTaskForm
+export default EditTaskForm

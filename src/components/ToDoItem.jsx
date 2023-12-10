@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom'
 import {
   ListItem,
   ListItemText,
@@ -11,11 +12,13 @@ import CachedIcon from '@mui/icons-material/Cached'
 import styles from '../assets/styles/customeStyles'
 
 const ToDoItem = ({ task, deleteTask }) => {
+  const navigate = useNavigate()
+
   return (
     <ListItem
       sx={styles.listItem}
       onClick={() => {
-        console.log('clicked')
+        navigate(`/tasks/${task.id}`)
       }}
     >
       <ListItemIcon sx={styles.listItemIcon}>

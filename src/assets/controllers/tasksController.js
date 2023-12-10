@@ -1,11 +1,15 @@
-//getTask
-//updateTask
-
 //getTasks
 const getTasks = async () => {
   const res = await fetch('http://localhost:5000/tasks?_sort=id&_order=desc')
-  const tasks = await res.json()
-  return tasks
+  const data = await res.json()
+  return data
+}
+
+//getTask
+const getTask = async (id) => {
+  const res = await fetch(`http://localhost:5000/tasks/${id}`)
+  const data = await res.json()
+  return data
 }
 
 //addTask
@@ -29,4 +33,20 @@ const deleteTask = async (id) => {
   })
 }
 
-export { getTasks, addTask, deleteTask }
+//updateTask
+const updateTask = async (id, task) => {
+  const taskToUpdate = await getTask(id)
+  const updatedTask = { ...taskToUpdate, ...task }
+  const res = await fetch(`http://localhost:5000/tasks/${id}`, {
+    method: 'PUT',
+    headers: {
+      'Content-type': 'application/json',
+    },
+    body: JSON.stringify(updatedTask),
+  })
+
+  const data = await res.json()
+  return data
+}
+
+export { getTasks, getTask, addTask, deleteTask, updateTask }

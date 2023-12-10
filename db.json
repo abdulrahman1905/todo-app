@@ -4,13 +4,13 @@
       "id": 1,
       "title": "Submit project report",
       "deadline": "tomorrow",
-      "status": "done"
+      "status": "not started"
     },
     {
       "id": 2,
       "title": "Update participant lists",
       "deadline": "tonight",
-      "status": "not started"
+      "status": "done"
     },
     {
       "id": 3,
@@ -23,6 +23,12 @@
       "title": "Reply emails",
       "deadline": "This Friday",
       "status": "done"
+    },
+    {
+      "title": "Testing update",
+      "deadline": "Next Tuesday",
+      "status": "in progress",
+      "id": 5
     }
   ]
 }

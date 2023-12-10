@@ -1,10 +1,9 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Fragment } from 'react'
 import {
   getTasks,
   addTask,
   deleteTask,
 } from '../assets/controllers/tasksController'
-import { Container, Box, Typography } from '@mui/material'
 import Loader from '../components/Loader'
 import Message from '../components/Message'
 import ToDoList from '../components/ToDoList'
@@ -58,13 +57,9 @@ const ToDoListScreen = () => {
     }
     fetchTasks()
   }, [])
+
   return (
-    <Container maxWidth='xs'>
-      <Box sx={{ textAlign: 'center', mt: 5, mb: 3 }}>
-        <Typography variant='h4' component='h1'>
-          ToDo List App
-        </Typography>
-      </Box>
+    <Fragment>
       {loading && <Loader />}
       {showAddTaskForm && (
         <AddTaskForm
@@ -84,7 +79,7 @@ const ToDoListScreen = () => {
       )}
       {tasks && <ToDoList tasks={tasks} deleteTask={deleteATask} />}
       {error && <Message variant='error'>{error.message}</Message>}
-    </Container>
+    </Fragment>
   )
 }
 
