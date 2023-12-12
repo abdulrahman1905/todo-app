@@ -26,7 +26,7 @@ const ToDoListScreen = () => {
         toast.success('Task added successfully')
       }
     } catch (error) {
-      console.log(error)
+      toast.error(`Error: ${error.message}`)
     }
   }
 
@@ -36,7 +36,7 @@ const ToDoListScreen = () => {
       setTasks(tasks.filter((task) => task.id !== id))
       toast.success('Task deleted successfully')
     } catch (error) {
-      console.log(error)
+      toast.error(`Error: ${error.message}`)
     }
   }
 

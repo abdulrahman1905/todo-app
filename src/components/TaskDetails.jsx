@@ -33,7 +33,7 @@ const TaskDetails = ({ task: taskFromParent }) => {
         toast.success('Changes saved successfully')
       }
     } catch (error) {
-      console.log(error)
+      toast.error(`Error: ${error.message}`)
     }
   }
 

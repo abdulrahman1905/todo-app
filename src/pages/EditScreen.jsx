@@ -1,5 +1,5 @@
 import { useEffect, useState, Fragment } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import { getTask } from '../assets/controllers/tasksController'
 import Loader from '../components/Loader'
 import Message from '../components/Message'
@@ -15,10 +15,14 @@ const EditScreen = () => {
     const fetchTask = async () => {
       try {
         const fetchedTask = await getTask(id)
-        setTask(fetchedTask)
+        if (fetchedTask.title) {
+          setTask(fetchedTask)
+        } else {
+          setError(`Task not found for task ID ${id}`)
+        }
         setLoading(false)
       } catch (error) {
-        setError(error)
+        setError(error.message)
         setLoading(false)
       }
     }
@@ -29,7 +33,11 @@ const EditScreen = () => {
     <Fragment>
       {loading && <Loader />}
       {task && <TaskDetails task={task} />}
-      {error && <Message variant='error'>{error.message}</Message>}
+      {error && (
+        <Message variant='error'>
+          {error}. <Link to='/'>Back to List</Link>
+        </Message>
+      )}
     </Fragment>
   )
 }

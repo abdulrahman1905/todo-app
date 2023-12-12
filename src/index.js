@@ -11,12 +11,15 @@ import {
 } from 'react-router-dom'
 import ToDoListScreen from './pages/ToDoListScreen'
 import EditScreen from './pages/EditScreen'
+import ErrorScreen from './pages/ErrorScreen'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path='/' element={<App />}>
-      <Route index path='/' element={<ToDoListScreen />} />
-      <Route path='/tasks/:id' element={<EditScreen />} />
+    <Route path='/' element={<App />} errorElement={<ErrorScreen />}>
+      <Route errorElement={ErrorScreen}>
+        <Route index element={<ToDoListScreen />} />
+        <Route path='/tasks/:id' element={<EditScreen />} />
+      </Route>
     </Route>
   )
 )

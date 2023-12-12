@@ -23,12 +23,6 @@
       "title": "Reply emails",
       "deadline": "This Friday",
       "status": "done"
-    },
-    {
-      "title": "Testing update",
-      "deadline": "Next Tuesday",
-      "status": "in progress",
-      "id": 5
     }
   ]
 }

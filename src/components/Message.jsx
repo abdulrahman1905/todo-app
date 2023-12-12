@@ -1,8 +1,12 @@
 import React from 'react'
 import { Alert } from '@mui/material'
 
-const Message = ({ children, variant }) => {
-  return <Alert severity={variant}>{children}</Alert>
+const Message = ({ children, variant, sx }) => {
+  return (
+    <Alert severity={variant} sx={sx}>
+      {children}
+    </Alert>
+  )
 }
 
 Message.defaultProps = {
