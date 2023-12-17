@@ -4,7 +4,7 @@
       "id": 1,
       "title": "Submit project report",
       "deadline": "tomorrow",
-      "status": "not started"
+      "status": "done"
     },
     {
       "id": 2,
@@ -23,6 +23,12 @@
       "title": "Reply emails",
       "deadline": "This Friday",
       "status": "done"
+    },
+    {
+      "title": "Deploy todo app",
+      "deadline": "Tomorrow",
+      "status": "in progress",
+      "id": 5
     }
   ]
 }
