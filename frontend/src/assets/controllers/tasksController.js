@@ -37,7 +37,7 @@ const deleteTask = async (id) => {
 const updateTask = async (id, task) => {
   const taskToUpdate = await getTask(id)
   const updatedTask = { ...taskToUpdate, ...task }
-  const res = await fetch(`https://localhost:5000/tasks/${id}`, {
+  const res = await fetch(`/tasks/${id}`, {
     method: 'PUT',
     headers: {
       'Content-type': 'application/json',
